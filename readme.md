@@ -8,5 +8,23 @@ can vote for each candidate as many times as they can afford to based on how man
 
 Here is a diagram of the interaction between the voters and the contract.
 
+The contract is deployed like this:
+
+```solidiy
+deployer.deploy(Voting, 1000, web3.toWei('0.1', 'ether'), ['Rama', 'Nick', 'Jose']);
+
+// 1000 is the total number of tokens for sale and the price of each token is set to 0.1 ether.
+// We will revisit this section again later in this tutorial.
+```
+
+An example buy order looks like this:
+
+```solidiy
+truffle(development)> Voting.deployed().then(function(contract) {contract.buy({value: web3.toWei('1', 'ether'), from: web3.eth.accounts[1]})})
+```
+
+
+
+
 ![image](https://user-images.githubusercontent.com/3628956/34448051-aa9de89e-ecaf-11e7-8261-18e4b508fb8a.png)
 
